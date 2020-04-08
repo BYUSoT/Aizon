@@ -1,0 +1,193 @@
+(html [h-full]
+	(head (script {async src: "https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.js"})
+		(link {rel: stylesheet media: all
+			href: "https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.css"})
+		(meta {name: viewport content: "width=device-width, initial-scale=1.0"})
+		(link {rel: stylesheet href: style.css})
+		(link {rel: stylesheet href: css/fa.css}))
+	(body [bg-gray-100 flex flex-col h-full]
+		(byu-header (h1 {slot: site-title} Aizon)
+			(byu-user-info {slot: user}
+				(a {slot: logout href: "/logout"} "Sign Out")
+				(span {slot: user-name} "Therin Garrett"))
+			(byu-search {slot: search}
+				(form
+					(input {type: search placeholder: Search} [bg-gray-200 focus:bg-gray-100])))))
+		(div [flex-grow]
+			(div [grid grid-cols-8 h-full]
+				(div {id: sidebar}
+					[px-6 pt-4 border-r-2 border-gray-600 h-full bg-gray-300 font-light]
+						(a {href: "main.html"} [block font-normal] "Jobs")
+						(a {href: "materials.html"} [block] "Materials")
+						(a {href: "invoices.html"} [block] "Invoices")
+						(a {href: "hours.html"} [block] "My Hours")
+						(a {href: "people.html"} [block] "People")
+						(a {href: "reports.html"} [block] "Reports")
+						(a {href: "admin.html"} [block] "Admin")
+						(hr [border-gray-500 block my-2 -mx-2])
+						(a {href: "main.html"} [block text-sm] "Current")
+						(a {href: "jobs/completed.html"} [block text-sm] "Completed")
+						(a {href: "jobs/not-invoiced.html"} [block text-sm] "Not Invoiced")
+						(a {href: "jobs/new.html"} [block text-sm font-normal] "New"))
+				(div {id: content}
+					[col-span-7 px-8 overflow-auto pb-5]
+					(div [mx-auto max-w-6xl xl:border-l-2 xl:border-r-2 xl:shadow-xl h-full pt-4 px-4]
+					(h1 [text-xl mb-4 font-semibold text-center] "New Job")
+					(form [grid grid-cols-6  w-full]
+						(div [col-start-1 col-span-2 mx-2 mb-4]
+							(label {for: submission}
+								[form-label]
+								"Date Submitted")
+							(input {id: submission name: submission type: date}
+								[w-3/5 form-input]))
+						(div [col-start-1 col-span-2 mx-2 mb-4]
+							(label {for: customer}
+								[form-label]
+								Customer)
+							(div [relative]
+								(select {id: customer name: customer}
+									[form-input w-full]
+									(option {value: "Henry Ford"} "Henry Ford")
+									(option {value: "Harrison Ford"} "Harrison Ford")
+									(option {value: "Henry Gates"} "Henry Gates"))
+								(div [pointer-events-none absolute inset-y-0 right-0
+										flex items-center px-2 text-gray-700]
+									(svg {xmlns: "http://www.w3.org/2000/svg" viewBox: "0 0 20 20"}
+										[fill-current h-4 w-4]
+										(path {d:
+				"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"})))))
+
+						(div [col-span-2 mx-2 mb-4]
+							(label {for: org}
+								[form-label]
+								Organization)
+							(div [relative]
+								(select {id: org name: org} [form-input w-full]
+									(option {value: "Ford Motors"} "Ford Motors")
+									(option {value: "Hollywood"} "Hollywood")
+									(option {value: "Tinysoft"} "Tinysoft"))
+								(div [pointer-events-none absolute inset-y-0 right-0
+										flex items-center px-2 text-gray-700]
+									(svg {xmlns: "http://www.w3.org/2000/svg" viewBox: "0 0 20 20"}
+										[fill-current h-4 w-4]
+										(path {d:
+				"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"})))))
+						(div [col-span-2 mx-2 mb-4]
+							(label {for: dep}
+								[form-label]
+								Department)
+							(div [relative]
+								(select {id: dep name: dep} [form-input w-full]
+									(option {value: "DMV"} "DMV")
+									(option {value: "Theatrics"} "Theatrics")
+									(option {value: "IT"} "IT"))
+								(div [pointer-events-none absolute inset-y-0 right-0
+										flex items-center px-2 text-gray-700]
+									(svg {xmlns: "http://www.w3.org/2000/svg" viewBox: "0 0 20 20"}
+										[fill-current h-4 w-4]
+										(path {d:
+				"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"})))))
+						(div [col-span-3 mx-2 mb-4]
+							(label {for: payment}
+								[form-label]
+								"Payment Type")
+							(div [relative]
+								(select {id: payment name: payment} [form-input w-full]
+									(option {value: "Cash"} "Cash")
+									(option {value: "Check"} "Check"))
+								(div [pointer-events-none absolute inset-y-0 right-0
+										flex items-center px-2 text-gray-700]
+									(svg {xmlns: "http://www.w3.org/2000/svg" viewBox: "0 0 20 20"}
+										[fill-current h-4 w-4]
+										(path {d:
+				"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"})))))
+						(div [col-span-3 mx-2 mb-4]
+							(label {for: opunit}
+								[form-label]
+								OU)
+							(div [relative]
+								(select {id: opunit name: opunit} [form-input w-full]
+									(option {value: "75"} "75")
+									(option {value: "62"} "62"))
+								(div [pointer-events-none absolute inset-y-0 right-0
+										flex items-center px-2 text-gray-700]
+									(svg {xmlns: "http://www.w3.org/2000/svg" viewBox: "0 0 20 20"}
+										[fill-current h-4 w-4]
+										(path {d:
+				"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"})))))
+						(div [col-span-3 mx-2 mb-4]
+							(label {for: cpo}
+								[form-label]
+								"Customer PO")
+							(input {id: cpo name: cpo type: text} [form-input w-full]))
+						(div [col-span-3 mx-2 mb-4]
+							(label {for: team}
+								[form-label]
+								"Team/Lab")
+							(input {id: team name: team type: text} [form-input w-full]))
+						(div [col-span-6 mx-2 mb-4]
+							(label {for: desc}
+								[form-label]
+								"Description")
+							(input {id: desc name: desc type: text} [form-input w-full]))
+						(div [col-span-3 mx-2 mb-4]
+							(label {for: aux}
+								[form-label]
+								"Auxiliary Contact")
+							(div [relative]
+								(select {id: aux name: aux} [form-input w-full]
+									(option {value: "Henry Ford"} "Henry Ford")
+									(option {value: "Harrison Ford"} "Harrison Ford")
+									(option {value: "Henry Gates"} "Henry Gates"))
+								(div [pointer-events-none absolute inset-y-0 right-0
+										flex items-center px-2 text-gray-700]
+									(svg {xmlns: "http://www.w3.org/2000/svg" viewBox: "0 0 20 20"}
+										[fill-current h-4 w-4]
+										(path {d:
+				"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"})))))
+						(div [col-span-3 mx-2 mb-4]
+							(label {for: billing}
+								[form-label]
+								"Billing Contact")
+							(div [relative]
+								(select {id: billing name: billing} [form-input w-full]
+									(option {value: "Henry Ford"} "Henry Ford")
+									(option {value: "Harrison Ford"} "Harrison Ford")
+									(option {value: "Henry Gates"} "Henry Gates"))
+								(div [pointer-events-none absolute inset-y-0 right-0
+										flex items-center px-2 text-gray-700]
+									(svg {xmlns: "http://www.w3.org/2000/svg" viewBox: "0 0 20 20"}
+										[fill-current h-4 w-4]
+										(path {d:
+				"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"})))))
+						(div [col-span-3 mx-2 mb-4]
+							(label {for: status}
+								[form-label]
+								Status)
+							(div [relative]
+								(select {id: status name: status} [form-input w-full]
+									(option {value: "Design"} "Design")
+									(option {value: "Quoting"} "Quoting")
+									(option {value: "Finished"} "Finished"))
+								(div [pointer-events-none absolute inset-y-0 right-0
+										flex items-center px-2 text-gray-700]
+									(svg {xmlns: "http://www.w3.org/2000/svg" viewBox: "0 0 20 20"}
+										[fill-current h-4 w-4]
+										(path {d:
+				"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"})))))
+						(div [col-span-3 mx-2 mb-4]
+							(label {for: complete}
+								[form-label]
+								"Date Completed")
+							(input {id: complete name: complete type: date} [form-input w-full]))
+						(div [col-start-3 text-right mt-2 mx-2]
+							(button {id: save name: save}
+								[button button-solid px-6]
+								Save))
+						(div [text-left mt-2 mx-2]
+							(button {id: cancel name: cancel}
+								[button button-outline px-5]
+								Cancel))
+					))))
+		)
+		(byu-footer)))

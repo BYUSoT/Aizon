@@ -1,0 +1,105 @@
+(html [h-full]
+	(head (script {async
+			src: "https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.js"})
+		(link {rel: stylesheet media: all
+			href: "https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.css"})
+		(meta {name: viewport content: "width=device-width, initial-scale=1.0"})
+		(link {rel: stylesheet href: style.css})
+		(link {rel: stylesheet href: css/fa.css}))
+	(body [bg-gray-100 flex flex-col h-full]
+		(byu-header (h1 {slot: site-title} Aizon)
+			(byu-user-info {slot: user}
+				(a {slot: logout href: "/logout"} "Sign Out")
+				(span {slot: user-name} "Therin Garrett"))
+			(byu-search {slot: search}
+				(form
+					(input {type: search placeholder: Search}))))
+		(div [flex-grow]
+			(div [grid grid-cols-8 h-full]
+				(div {id: sidebar}
+					[px-6 pt-4 border-r-2 border-gray-600 h-full bg-gray-300 font-light]
+						(a {href: #} [block font-normal] "Jobs")
+						(a {href: "materials.html"} [block] "Materials")
+						(a {href: "invoices.html"} [block] "Invoices")
+						(a {href: "hours.html"} [block] "My Hours")
+						(a {href: "people.html"} [block] "People")
+						(a {href: "reports.html"} [block] "Reports")
+						(a {href: "admin.html"} [block] "Admin")
+						(hr [border-gray-500 block my-2 -mx-2])
+						(a {href: "jobs/current.html"} [block text-sm font-normal] "Current")
+						(a {href: "jobs/completed.html"} [block text-sm] "Completed")
+						(a {href: "jobs/not-invoiced.html"} [block text-sm] "Not Invoiced")
+						(a {href: "newjob.html"} [block text-sm] "New"))
+				(div {id: content}
+					[col-span-7 px-8 overflow-auto]
+					(div [mx-auto max-w-6xl xl:border-l-2 xl:border-r-2 xl:shadow-xl h-full pt-4 px-4]
+					(h1 [text-xl mb-4 font-semibold text-center] "Current Jobs")
+					(table [w-full border-collapse border-4 border-gray-400]
+					(thead (tr [border-2]
+						(th [border px-2 py-1] "Job ID")
+						(th [border px-2 py-1] "Customer")
+						(th [border px-2 py-1] "Dept")
+						(th [border px-2 py-1] "Date Ordered")
+						(th [border px-2 py-1] "Cust. PO")
+						(th [border px-2 py-1] "Team")
+						(th [border px-2 py-1] "Description")
+						(th [border px-2 py-1] "Job Status")))
+					(tbody
+						(tr [border-2]
+							(td [border px-2 py-1]
+								(a {href: "jobs/3402.html"} (i [far fa-eye]) " 3402"))
+							(td [border px-2 py-1] "Laws, Myke")	
+							(td [border px-2 py-1] "Personal")	
+							(td [border px-2 py-1] "03/12/20")	
+							(td [border px-2 py-1])	
+							(td [border px-2 py-1])	
+							(td [border px-2 py-1] "Pipe Coupling II (x2)")	
+							(td [border px-2 py-1] "Finished")	
+							(td [border px-2 py-1 bg-gray text-center]
+								(a {href: "invoices/new.html"} [fas fa-file-alt])
+								(a {href: "jobs/edit.html"} [fas fa-pen-square pl-1])
+								(a {href: #} [fas fa-trash-alt pl-1])))
+						(tr [border-2]
+							(td [border px-2 py-1]
+								(a {href: #} (i [far fa-eye]) " 3402"))
+							(td [border px-2 py-1] "Laws, Myke")	
+							(td [border px-2 py-1] "Personal")	
+							(td [border px-2 py-1] "03/12/20")	
+							(td [border px-2 py-1])	
+							(td [border px-2 py-1])	
+							(td [border px-2 py-1] "Pipe Coupling II (x2)")	
+							(td [border px-2 py-1] "Finished")	
+							(td [border px-2 py-1 bg-gray text-center]
+								(a {href: #} [fas fa-file-alt])
+								(a {href: #} [fas fa-pen-square pl-1])
+								(a {href: #} [fas fa-trash-alt pl-1])))
+						(tr [border-2]
+							(td [border px-2 py-1]
+								(a {href: #} (i [far fa-eye]) " 3402"))
+							(td [border px-2 py-1] "Laws, Myke")	
+							(td [border px-2 py-1] "Personal")	
+							(td [border px-2 py-1] "03/12/20")	
+							(td [border px-2 py-1])	
+							(td [border px-2 py-1])	
+							(td [border px-2 py-1] "Pipe Coupling II (x2)")	
+							(td [border px-2 py-1] "Finished")	
+							(td [border px-2 py-1 bg-gray text-center]
+								(a {href: #} [fas fa-file-alt])
+								(a {href: #} [fas fa-pen-square pl-1])
+								(a {href: #} [fas fa-trash-alt pl-1])))
+						(tr [border-2]
+							(td [border px-2 py-1]
+								(a {href: #} (i [far fa-eye]) " 3402"))
+							(td [border px-2 py-1] "Laws, Myke")	
+							(td [border px-2 py-1] "Personal")	
+							(td [border px-2 py-1] "03/12/20")	
+							(td [border px-2 py-1])	
+							(td [border px-2 py-1])	
+							(td [border px-2 py-1] "Pipe Coupling II (x2)")	
+							(td [border px-2 py-1] "Finished")	
+							(td [border px-2 py-1 bg-gray text-center]
+								(a {href: #} [fas fa-file-alt])
+								(a {href: #} [fas fa-pen-square pl-1])
+								(a {href: #} [fas fa-trash-alt pl-1]))))))))
+		)
+		(byu-footer)))

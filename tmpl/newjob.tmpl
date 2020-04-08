@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html class="h-full">
+  <head>
+    <script async src="https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.js">
+    </script>
+    <link rel="stylesheet" media="all" href="https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/fa.css">
+	<script src="newjob.js">
+  </head>
+  <body class="bg-gray-100 flex flex-col h-full">
+    <byu-header>
+      <h1 slot="site-title">Aizon</h1>
+      <byu-user-info slot="user">
+        <a slot="logout" href="/logout">Sign Out</a>
+        <span slot="user-name">{{.User}}</span>
+      </byu-user-info>
+      <byu-search slot="search">
+        <form>
+          <input type="search" placeholder="Search" class="bg-gray-200 focus:bg-gray-100">
+        </form>
+      </byu-search>
+    </byu-header>
+  </body>
+  <div class="flex-grow">
+    <div class="grid grid-cols-8 h-full">
+      <div id="sidebar" class="px-6 pt-4 border-r-2 border-gray-600 h-full bg-gray-300 font-light">
+        <a href="main.html" class="block font-normal">Jobs</a>
+        <a href="materials.html" class="block">Materials</a>
+        <a href="invoices.html" class="block">Invoices</a>
+        <a href="hours.html" class="block">My Hours</a>
+        <a href="people.html" class="block">People</a>
+        <a href="reports.html" class="block">Reports</a>
+        <a href="admin.html" class="block">Admin</a>
+        <hr class="border-gray-500 block my-2 -mx-2">
+        <a href="main.html" class="block text-sm">Current</a>
+        <a href="jobs/completed.html" class="block text-sm">Completed</a>
+        <a href="jobs/not-invoiced.html" class="block text-sm">Not Invoiced</a>
+        <a href="jobs/new.html" class="block text-sm font-normal">New</a>
+      </div>
+      <div id="content" class="col-span-7 px-8 overflow-auto pb-5">
+        <div class="mx-auto max-w-6xl xl:border-l-2 xl:border-r-2 xl:shadow-xl h-full pt-4 px-4">
+          <h1 class="text-xl mb-4 font-semibold text-center">New Job</h1>
+          <form class="grid grid-cols-6 w-full">
+            <div class="col-start-1 col-span-2 mx-2 mb-4">
+              <label for="submission" class="form-label">Date Submitted
+              </label>
+              <input id="submission" name="submission" type="date" class="w-3/5 form-input">
+            </div>
+            <div class="col-start-1 col-span-2 mx-2 mb-4">
+              <label for="customer" class="form-label">Customer
+              </label>
+              <div class="relative">
+                <select id="customer" name="customer" class="form-input w-full">
+                  {{range .Customers}}
+                  <option value="{{.Id}}">{{.Name}}</option>
+                  {{end}}
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-4 w-4">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-2 mx-2 mb-4">
+              <label for="org" class="form-label">Organization
+              </label>
+              <div class="relative">
+                <select id="org" name="org" class="form-input w-full">
+                  <option class="hidden" value="-1"></option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-4 w-4">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-2 mx-2 mb-4">
+              <label for="dep" class="form-label">Department
+              </label>
+              <div class="relative">
+                <select id="dep" name="dep" class="form-input w-full">
+                  <option class="hidden" value="-1"></option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-4 w-4">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-3 mx-2 mb-4">
+              <label for="payment" class="form-label">Payment Type
+              </label>
+              <div class="relative">
+                <select id="payment" name="payment" class="form-input w-full">
+                  <option value="Cash">Cash
+                  </option>
+                  <option value="Check">Check
+                  </option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-4 w-4">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-3 mx-2 mb-4">
+              <label for="opunit" class="form-label">OU
+              </label>
+              <div class="relative">
+                <select id="opunit" name="opunit" class="form-input w-full">
+                  <option class="hidden" value="-1"></option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-4 w-4">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-3 mx-2 mb-4">
+              <label for="cpo" class="form-label">Customer PO
+              </label>
+              <input id="cpo" name="cpo" type="text" class="form-input w-full">
+            </div>
+            <div class="col-span-3 mx-2 mb-4">
+              <label for="team" class="form-label">Team/Lab
+              </label>
+              <input id="team" name="team" type="text" class="form-input w-full">
+            </div>
+            <div class="col-span-6 mx-2 mb-4">
+              <label for="desc" class="form-label">Description
+              </label>
+              <input id="desc" name="desc" type="text" class="form-input w-full">
+            </div>
+            <div class="col-span-3 mx-2 mb-4">
+              <label for="aux" class="form-label">Auxiliary Contact
+              </label>
+              <div class="relative">
+                <select id="aux" name="aux" class="form-input w-full">
+                  {{range .Aux}}
+                  <option value="{{.Id}}">{{.Name}}</option>
+                  {{end}}
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-4 w-4">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-3 mx-2 mb-4">
+              <label for="billing" class="form-label">Billing Contact
+              </label>
+              <div class="relative">
+                <select id="billing" name="billing" class="form-input w-full">
+                  {{range .Bill}}
+                  <option value="{{.Id}}">{{.Name}}</option>
+                  {{end}}
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-4 w-4">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-3 mx-2 mb-4">
+              <label for="status" class="form-label">Status
+              </label>
+              <div class="relative">
+                <select id="status" name="status" class="form-input w-full">
+                  <option value="Quoting">Quoting</option>
+                  <option value="Design">Design</option>
+                  <option value="Design">In Process</option>
+                  <option value="Design">On Hold</option>
+                  <option value="Finished">Finished</option>
+                  <option value="Design">Cancelled</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-4 w-4">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="col-span-3 mx-2 mb-4">
+              <label for="complete" class="form-label">Date Completed
+              </label>
+              <input id="complete" name="complete" type="date" class="form-input w-full">
+            </div>
+            <div class="col-start-3 text-right mt-2 mx-2">
+              <button id="save" name="save" class="bg-blue-900 px-6 py-1 rounded-md text-gray-100 border border-blue-700 font-semibold tracking-wider hover:bg-blue-700">Save
+              </button>
+            </div>
+            <div class="text-left mt-2 mx-2">
+              <button id="cancel" name="cancel" class="border border-blue-900 px-5 py-1 rounded-md text-blue-900 font-semibold hover:text-blue-600 hover:border-blue-500 hover:bg-gray-200">Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <byu-footer>
+  </byu-footer>
+</html>

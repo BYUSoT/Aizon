@@ -1,0 +1,29 @@
+(html [h-full]
+	(head (script {async
+			src: "https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.js"})
+		(link {rel: stylesheet media: all
+			href: "https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.css"})
+		(meta {name: viewport content: "width=device-width, initial-scale=1.0"})
+		(link {rel: stylesheet href: style.css})
+		(link {rel: stylesheet href: css/fa.css}))
+	(body [bg-gray-100 flex flex-col h-full]
+		(byu-header (h1 {slot: site-title} Aizon))
+		(div [flex-grow flex]
+			(form [m-auto border shadow p-4 w-1/2]
+				(div 
+					(label {for: username} [form-label]
+						"Username")
+					(input {id: username name: username type: text}
+						[form-input w-full mb-4]))
+				(div 
+					(label {for: password} [form-label]
+						"Password")
+					(input {id: password name: password type: password}
+						[form-input w-full mb-4]))
+				(p {id: incorrect} [text-red-500 text-sm mb-4] "Incorrect Username or Password. Please try again.")
+				(div
+					(button {id: login name: login}
+						[button button-solid px-5]
+						 Login))
+						))
+		(byu-footer)))

@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html class="h-full">
+  <head>
+    <script async src="https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.js">
+    </script>
+    <link rel="stylesheet" media="all" href="https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/fa.css">
+  </head>
+  <body class="bg-gray-100 flex flex-col h-full">
+    <byu-header>
+      <h1 slot="site-title">Aizon</h1>
+      <byu-user-info slot="user">
+        <a slot="logout" href="/logout">Sign Out</a>
+        <span slot="user-name">Therin Garrett
+        </span>
+      </byu-user-info>
+      <byu-search slot="search">
+        <form>
+          <input type="search" placeholder="Search">
+        </form>
+      </byu-search>
+    </byu-header>
+    <div class="flex-grow">
+      <div class="grid grid-cols-8 h-full">
+        <div id="sidebar" class="px-6 pt-4 border-r-2 border-gray-600 h-full bg-gray-300 font-light">
+          <a href="#" class="block font-normal">Jobs</a>
+          <a href="materials.html" class="block">Materials</a>
+          <a href="invoices.html" class="block">Invoices</a>
+          <a href="hours.html" class="block">My Hours</a>
+          <a href="people.html" class="block">People</a>
+          <a href="reports.html" class="block">Reports</a>
+          <a href="admin.html" class="block">Admin</a>
+          <hr class="border-gray-500 block my-2 -mx-2">
+          <a href="jobs/current.html" class="block text-sm font-normal">Current</a>
+          <a href="jobs/completed.html" class="block text-sm">Completed</a>
+          <a href="jobs/not-invoiced.html" class="block text-sm">Not Invoiced</a>
+          <a href="newjob.html" class="block text-sm">New</a>
+        </div>
+        <div id="content" class="col-span-7 px-8 overflow-auto">
+          <div class="mx-auto max-w-6xl xl:border-l-2 xl:border-r-2 xl:shadow-xl h-full pt-4 px-4">
+            <h1 class="text-xl mb-4 font-semibold text-center">Current Jobs</h1>
+            <table class="w-full border-collapse border-4 border-gray-400">
+              <thead>
+                <tr class="border-2">
+                  <th class="border px-2 py-1">Job ID</th>
+                  <th class="border px-2 py-1">Customer</th>
+                  <th class="border px-2 py-1">Dept</th>
+                  <th class="border px-2 py-1">Date Ordered</th>
+                  <th class="border px-2 py-1">Cust. PO</th>
+                  <th class="border px-2 py-1">Team</th>
+                  <th class="border px-2 py-1">Description</th>
+                  <th class="border px-2 py-1">Job Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-2">
+                  <td class="border px-2 py-1"><a href="jobs/3402.html"><i class="far fa-eye"></i> 3402</a></td>
+                  <td class="border px-2 py-1">Laws, Myke</td>
+                  <td class="border px-2 py-1">Personal</td>
+                  <td class="border px-2 py-1">03/12/20</td>
+                  <td class="border px-2 py-1"></td>
+                  <td class="border px-2 py-1"></td>
+                  <td class="border px-2 py-1">Pipe Coupling II (x2)</td>
+                  <td class="border px-2 py-1">Finished</td>
+                  <td class="border px-2 py-1 bg-gray text-center"><a href="invoices/new.html" class="fas fa-file-alt"></a><a href="jobs/edit.html" class="fas fa-pen-square pl-1"></a><a href="#" class="fas fa-trash-alt pl-1"></a></td>
+                </tr>
+                <tr class="border-2">
+                  <td class="border px-2 py-1"><a href="#"><i class="far fa-eye"></i> 3402</a></td>
+                  <td class="border px-2 py-1">Laws, Myke</td>
+                  <td class="border px-2 py-1">Personal</td>
+                  <td class="border px-2 py-1">03/12/20</td>
+                  <td class="border px-2 py-1"></td>
+                  <td class="border px-2 py-1"></td>
+                  <td class="border px-2 py-1">Pipe Coupling II (x2)</td>
+                  <td class="border px-2 py-1">Finished</td>
+                  <td class="border px-2 py-1 bg-gray text-center"><a href="#" class="fas fa-file-alt"></a><a href="#" class="fas fa-pen-square pl-1"></a><a href="#" class="fas fa-trash-alt pl-1"></a></td>
+                </tr>
+                <tr class="border-2">
+                  <td class="border px-2 py-1"><a href="#"><i class="far fa-eye"></i> 3402</a></td>
+                  <td class="border px-2 py-1">Laws, Myke</td>
+                  <td class="border px-2 py-1">Personal</td>
+                  <td class="border px-2 py-1">03/12/20</td>
+                  <td class="border px-2 py-1"></td>
+                  <td class="border px-2 py-1"></td>
+                  <td class="border px-2 py-1">Pipe Coupling II (x2)</td>
+                  <td class="border px-2 py-1">Finished</td>
+                  <td class="border px-2 py-1 bg-gray text-center"><a href="#" class="fas fa-file-alt"></a><a href="#" class="fas fa-pen-square pl-1"></a><a href="#" class="fas fa-trash-alt pl-1"></a></td>
+                </tr>
+                <tr class="border-2">
+                  <td class="border px-2 py-1"><a href="#"><i class="far fa-eye"></i> 3402</a></td>
+                  <td class="border px-2 py-1">Laws, Myke</td>
+                  <td class="border px-2 py-1">Personal</td>
+                  <td class="border px-2 py-1">03/12/20</td>
+                  <td class="border px-2 py-1"></td>
+                  <td class="border px-2 py-1"></td>
+                  <td class="border px-2 py-1">Pipe Coupling II (x2)</td>
+                  <td class="border px-2 py-1">Finished</td>
+                  <td class="border px-2 py-1 bg-gray text-center"><a href="#" class="fas fa-file-alt"></a><a href="#" class="fas fa-pen-square pl-1"></a><a href="#" class="fas fa-trash-alt pl-1"></a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <byu-footer>
+    </byu-footer>
+  </body>
+</html>

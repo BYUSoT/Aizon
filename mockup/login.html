@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html class="h-full">
+  <head>
+    <script async src="https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.js">
+    </script>
+    <link rel="stylesheet" media="all" href="https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/fa.css">
+  </head>
+  <body class="bg-gray-100 flex flex-col h-full">
+    <byu-header>
+      <h1 slot="site-title">Aizon</h1>
+    </byu-header>
+    <div class="flex-grow flex">
+      <form class="m-auto border shadow p-4 w-1/2">
+        <div>
+          <label for="username" class="form-label">Username
+          </label>
+          <input id="username" name="username" type="text" class="form-input w-full mb-4">
+        </div>
+        <div>
+          <label for="password" class="form-label">Password
+          </label>
+          <input id="password" name="password" type="password" class="form-input w-full mb-4">
+        </div>
+        <p id="incorrect" class="text-red-500 text-sm mb-4">Incorrect Username or Password. Please try again.</p>
+        <div>
+          <button id="login" name="login" class="button button-solid px-5">Login
+          </button>
+        </div>
+      </form>
+    </div>
+    <byu-footer>
+    </byu-footer>
+  </body>
+</html>

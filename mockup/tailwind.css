@@ -1,0 +1,37 @@
+@tailwind base;
+
+@tailwind components;
+
+.form-label {
+	@apply block text-xs font-bold uppercase mb-2 tracking-wide text-gray-800;
+}
+
+.form-input {
+	@apply appearance-none rounded bg-gray-200 border border-gray-500 px-2 py-1 text-gray-700;
+}
+
+.form-input:focus {
+	@apply bg-white border-blue-600 outline-none;
+}
+
+.button {
+	@apply py-1 rounded-md border font-semibold tracking-wider;
+}
+
+.button-solid {
+	@apply bg-blue-900 text-gray-100 border-blue-700;
+}
+
+.button-solid:hover {
+	@apply bg-blue-700;
+}
+
+.button-outline {
+	@apply border-blue-900 text-blue-900;
+}
+
+.button-outline:hover {
+	@apply text-blue-600 border-blue-500 bg-gray-200;
+}
+
+@tailwind utilities;

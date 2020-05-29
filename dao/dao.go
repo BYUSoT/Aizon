@@ -16,3 +16,5 @@ func init() {
 		log.Fatal("E: Can't access database!\n")
 	}
 }
+
+
